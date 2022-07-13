@@ -10,6 +10,7 @@ import torch.nn as nn
 import torch.optim as optim
 import torch.nn.functional as F
 import multiprocessing as mp
+import pyro
 
 import models
 from utils import mkdir
@@ -103,6 +104,7 @@ def main(args):
     checkpoint = torch.load(args.model_path)
     print(args.model_path)
     print('==> Best LogProb: {:.6f}\n'.format(checkpoint['best_loss']))
+    print('associative power',checkpoint['associative power'])
     model.load_state_dict(checkpoint['state_dict'],strict=False)
     if args.cuda:
         model.cuda()
@@ -151,7 +153,10 @@ if __name__ == '__main__':
     if args.cuda:
         torch.cuda.set_device('cuda:' + args.gpu_id)
         torch.cuda.manual_seed(args.seed)
-        torch.backends.cudnn.benchmark = True
+        np.random.seed(args.seed)
+        torch.backends.cudnn.deterministic = True
+        torch.backends.cudnn.benchmark = False
+        pyro.set_rng_seed(args.seed)
 
     args.save = os.path.join(args.save, args.arch + '_flowtype_' + args.flow_type
         + '_floworder_' + args.flow_order)

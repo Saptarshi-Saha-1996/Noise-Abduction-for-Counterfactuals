@@ -8,6 +8,7 @@ import torch.nn as nn
 import torch.optim as optim
 import torch.nn.functional as F
 import multiprocessing as mp
+import pyro
 
 import models
 from utils import mkdir, milestone_step
@@ -42,14 +43,16 @@ def train(args, model, optimizer, train_loader, epoch):
         if batch_idx % args.log_interval == 0:
             print('Train Epoch: {} [{}/{} ({:.1f}%)]\t| -LogProb Sex: {:.6f}\tAge: {:.6f} \tAmount: {:.6f}\tDuration: {:.6f} \tTotal: {:.6f}'.format(epoch, batch_idx * len(duration),
                 len(train_loader.dataset), 100. * batch_idx / len(train_loader),
-                -torch.mean(log_p['sex']).item(), -torch.mean(log_p['age']).item(),
-                -torch.mean(log_p['amount']).item(), -torch.mean(log_p['duration']).item(), -loss.item()))
+                torch.mean(log_p['sex']).item(), torch.mean(log_p['age']).item(),
+                torch.mean(log_p['amount']).item(), torch.mean(log_p['duration']).item(), -loss.item()))
             
             
             
 
 def test(args, model, test_loader):
     test_loss = 0.
+    model.eval()
+    associative_power ={'sex':0,'age':0,'amount':0,'duration':0}
     for sex,age, amount, duration in test_loader:
         with torch.no_grad():
             if args.cuda:
@@ -57,10 +60,19 @@ def test(args, model, test_loader):
             log_p = model(sex, age, amount, duration)
             test_loss += torch.mean(log_p['sex']+log_p['age']+log_p['amount']+log_p['duration'])
                                     #log_p['risk']).item()
+            for k,v in log_p.items():
+                associative_power[k]+=torch.mean(v)
 
-    test_loss /= len(test_loader.dataset)
-    print('\nTest set: Average LogProb: {:.6f}\n'.format(test_loss))
-    return test_loss
+    test_loss /= len(test_loader)
+    associative_power=dict(associative_power) 
+    associative_power={k: v/len(test_loader) for k,v in associative_power.items()}
+    print('\nTest set: Average  LogProb: {:.6f}\n'.format(test_loss))
+    return test_loss, associative_power
+
+
+
+
+
 #--------------------------------------------------------------------------------------------------------------
 def main(args):
     kwargs = {'num_workers': mp.cpu_count(), 'pin_memory': True} if args.cuda else {}
@@ -87,14 +99,15 @@ def main(args):
         else:
             scheduler.step()
         train(args, model, optimizer, train_loader, epoch)
-        loss = test(args, model, test_loader)
+        loss, ass_power = test(args, model, test_loader)
         is_best = loss > best_loss
         best_loss = max(loss, best_loss)
         save_checkpoint({
             'epoch': epoch + 1,
             'state_dict': model.state_dict(),
             'best_loss': best_loss,
-            'optimizer': optimizer.state_dict()
+            'optimizer': optimizer.state_dict(),
+            'associative power':ass_power
         }, is_best, filepath=args.save)
 
     del model
@@ -148,7 +161,10 @@ if __name__ == '__main__':
     if args.cuda:
         torch.cuda.set_device('cuda:' + args.gpu_id)
         torch.cuda.manual_seed(args.seed)
-        torch.backends.cudnn.benchmark = True
+        np.random.seed(args.seed)
+        torch.backends.cudnn.deterministic = True
+        torch.backends.cudnn.benchmark = False
+        pyro.set_rng_seed(args.seed)
 
     mkdir(args.save)
     args.save = os.path.join(args.save, args.arch + '_flowtype_' + args.flow_type

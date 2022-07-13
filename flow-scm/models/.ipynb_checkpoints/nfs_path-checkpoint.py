@@ -163,15 +163,15 @@ class ConditionalSCM_Path(PyroModule):
         context_amount = torch.cat([self.sex, self.age], -1)
         #print(context_amount)
         self.amount_base_dist = Normal(self.amount_base_loc.cuda(), self.amount_base_scale.cuda()).to_event(1)
-        self.amount_dist = ConditionalTransformedDistribution(self.amount_base_dist, self.amount_flow_transforms).condition(context_amount)
-        self.amount = pyro.sample('amount', self.amount_dist).cuda()
+        self.amount_dist = ConditionalTransformedDistribution(self.amount_base_dist, self.amount_flow_transforms)
+        self.amount = pyro.sample('amount', self.amount_dist.condition(context_amount)).cuda()
         #print('amount',self.amount)
         
         # duration
         context_duration = torch.cat([self.amount], -1)
         self.duration_base_dist = Normal(self.duration_base_loc, self.duration_base_scale).to_event(1)
-        self.duration_dist = ConditionalTransformedDistribution(self.duration_base_dist, self.duration_flow_transforms).condition(context_duration)
-        self.duration = pyro.sample('duration', self.duration_dist)
+        self.duration_dist = ConditionalTransformedDistribution(self.duration_base_dist, self.duration_flow_transforms)
+        self.duration = pyro.sample('duration', self.duration_dist.condition(context_duration))
         #print('duration',self.duration)
         
 #         # risk
@@ -186,14 +186,16 @@ class ConditionalSCM_Path(PyroModule):
 
     def forward(self, sex, age, amount, duration ):
         self.pgm_model()
+        context_amount = torch.cat([sex,age], -1)
+        context_duration = torch.cat([amount], -1)
+        
+        
         sex_logp = self.sex_dist.log_prob(sex)
-        #print(sex_logp,type(sex_logp),sex_logp.shape)
         age_logp = torch.zeros(sex_logp.shape,device=sex_logp.get_device())
-        amount_logp = self.amount_dist.log_prob(amount)
-        #print('Duration-------',duration)
-        #print('Duration_distribution',self.duration_dist)
-        duration_logp = self.duration_dist.log_prob(duration)
-        # risk_logp=self.risk_dist.log_prob(risk)
+        amount_logp = self.amount_dist.condition(context_amount).log_prob(amount)
+        duration_logp = self.duration_dist.condition(context_duration).log_prob(duration)
+
+        
         return {'sex': sex_logp, 'age': age_logp, 'amount': amount_logp, 'duration': duration_logp}
 
     def clear(self):
