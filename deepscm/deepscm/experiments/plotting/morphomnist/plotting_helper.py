@@ -1,7 +1,8 @@
-ROOT_PATH = '../../../../'
+ROOT_PATH =   '../../../../'
 MNIST_DATA_PATH = ROOT_PATH + 'assets/data/morphomnist/'
 BASE_LOG_PATH = ROOT_PATH + 'assets/models/morphomnist/SVIExperiment'
 
+from email.policy import strict
 import sys
 import os
 
@@ -97,13 +98,13 @@ for exp in experiments:
         
         new_state_dict = OrderedDict()
 
-        for key, value in ckpt['state_dict'].items():
+        for key, value in ckpt['state_dict'].items():    
             new_key = key.replace('pyro_model.', '')
             new_state_dict[new_key] = value
             
         loaded_model = model_class(**model_params)
-        loaded_model.load_state_dict(new_state_dict)
-        
+        loaded_model.load_state_dict(new_state_dict,strict=False)
+
         for p in loaded_model._buffers.keys():
             if 'norm' in p:
                 setattr(loaded_model, p, getattr(loaded_model, p))
@@ -128,6 +129,7 @@ value_fmt = {
     'intensity': lambda s: rf"{int(s):d}"
 }
 
+
 def fmt_intervention(intervention):
     all_interventions = ', '.join([f'{var_name[k]}={value_fmt[k](v)}' for k, v in intervention.items()])
     return f"$do({all_interventions})$"
@@ -139,6 +141,7 @@ def plot_intervention_range(model_name, interventions, idx, normalise_all=True, 
     orig_data = prep_data(test_data[idx])
     
     imgs = []
+    
     for intervention in interventions:
         cond = {k: torch.tensor([[v]]) for k, v in intervention.items()}
         counterfactual = loaded_models[model_name].counterfactual(orig_data, cond, num_samples)
@@ -175,3 +178,7 @@ def plot_intervention_range(model_name, interventions, idx, normalise_all=True, 
     
     fig.tight_layout()
     plt.show()
+
+if __name__ == "__main__":
+    #print(loaded_models)
+    print('done')

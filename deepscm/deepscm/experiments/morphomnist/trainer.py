@@ -4,10 +4,12 @@ from .base_experiment import EXPERIMENT_REGISTRY, MODEL_REGISTRY
 if __name__ == '__main__':
     from pytorch_lightning import Trainer
     from pytorch_lightning.loggers import TensorBoardLogger
+    from pytorch_lightning.callbacks.progress import TQDMProgressBar
     import argparse
     import os
     import warnings
 
+    
     exp_parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     exp_parser.add_argument('--experiment', '-e', help='which experiment to load', choices=tuple(EXPERIMENT_REGISTRY.keys()))
     exp_parser.add_argument('--model', '-m', help='which model to load', choices=tuple(MODEL_REGISTRY.keys()))
@@ -15,9 +17,9 @@ if __name__ == '__main__':
     exp_args, other_args = exp_parser.parse_known_args()
 
     exp_class = EXPERIMENT_REGISTRY[exp_args.experiment]
-    print('exp_class-----',exp_class)
+    #print('exp_class-----',exp_class)
     model_class = MODEL_REGISTRY[exp_args.model]
-    print('model_class----',model_class)
+    #print('model_class----',model_class)
 
     parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser = Trainer.add_argparse_args(parser)
@@ -59,12 +61,26 @@ if __name__ == '__main__':
     for k, v in vars(model_params).items():
         setattr(hparams, k, v)
 
+    print(lightning_args)
     trainer = Trainer.from_argparse_args(lightning_args)
 
+    ## debugging 
+    trainer.fast_dev_run=True
+    trainer.callbacks=[TQDMProgressBar(refresh_rate=20)]
+
+
+    #trainer.max_epochs=5
+    print('updated trainer.fast_dev_run',trainer.fast_dev_run)
+
+    #print('gpu',trainer.gpus,trainer.root_gpu,'root_device',trainer.strategy.root_device)
+    #print(trainer.strategy)
+    #print('fast_dev_run',trainer.fast_dev_run)
     if not args.validate:
         warnings.filterwarnings('ignore', message='.*was not registered in the param store because.*', module=r'pyro\.primitives')
     model = model_class(**vars(model_params))
-    print('model-------',model,'\n')
+    #print('model-------',model,'\n')
     experiment = exp_class(hparams, model)
-    print('experiment------',experiment,'\n')
-    #trainer.fit(experiment)
+    #print('experiment------',experiment,'\n')
+
+
+    trainer.fit(experiment)

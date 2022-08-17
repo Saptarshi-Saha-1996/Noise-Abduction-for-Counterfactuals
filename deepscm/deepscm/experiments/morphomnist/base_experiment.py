@@ -27,6 +27,8 @@ import multiprocessing
 
 EXPERIMENT_REGISTRY = {}
 MODEL_REGISTRY = {}
+NUM_WORKERS = 16
+
 
 
 class BaseSEM(PyroModule):
@@ -173,11 +175,9 @@ class BaseCovariateExperiment(pl.LightningModule):
 
         hparams.experiment = self.__class__.__name__
         hparams.model = pyro_model.__class__.__name__
-        #hparams=vars(hparams)
+  
         #self.hparams = hparams
         self.save_hyperparameters(hparams)
-        #for key in hparams.keys():
-         #self.hparams[key]=hparams[key]
 
         self.data_dir = hparams.data_dir
         self.train_batch_size = hparams.train_batch_size
@@ -228,7 +228,7 @@ class BaseCovariateExperiment(pl.LightningModule):
         num_train = len(mnist_train) - num_val
         self.mnist_train, self.mnist_val = random_split(mnist_train, [num_train, num_val])
 
-        self.torch_device = self.trainer.root_gpu if self.trainer.on_gpu else self.trainer.root_device
+        self.torch_device =  self.trainer.strategy.root_device   #self.trainer.root_gpu if self.trainer.gpus else self.trainer.root_device
         print(f'using device: {self.torch_device}')
         thicknesses = 1. + torch.arange(3, dtype=torch.float, device=self.torch_device)
         self.thickness_range = thicknesses.repeat(3).unsqueeze(1)
@@ -248,14 +248,14 @@ class BaseCovariateExperiment(pl.LightningModule):
         pass
 
     def train_dataloader(self):
-        return DataLoader(self.mnist_train, batch_size=self.train_batch_size, shuffle=True)
+        return DataLoader(self.mnist_train, batch_size=self.train_batch_size, shuffle=True,num_workers=NUM_WORKERS)
 
     def val_dataloader(self):
-        self.val_loader = DataLoader(self.mnist_test, batch_size=self.test_batch_size, shuffle=False)
+        self.val_loader = DataLoader(self.mnist_test, batch_size=self.test_batch_size, shuffle=False,num_workers=NUM_WORKERS)
         return self.val_loader
 
     def test_dataloader(self):
-        self.test_loader = DataLoader(self.mnist_test, batch_size=self.test_batch_size, shuffle=False)
+        self.test_loader = DataLoader(self.mnist_test, batch_size=self.test_batch_size, shuffle=False,num_workers=NUM_WORKERS)
         return self.test_loader
 
     def forward(self, *args, **kwargs):
@@ -421,7 +421,7 @@ class BaseCovariateExperiment(pl.LightningModule):
         return prob_maps
 
     def log_img_grid(self, tag, imgs, normalize=True, save_img=False, **kwargs):
-        if save_img:
+        if save_img and not self.trainer.fast_dev_run:
             p = os.path.join(self.trainer.logger.experiment.log_dir, f'{tag}.png')
             torchvision.utils.save_image(imgs, p)
         grid = torchvision.utils.make_grid(imgs, normalize=normalize, **kwargs)
@@ -429,8 +429,8 @@ class BaseCovariateExperiment(pl.LightningModule):
 
     def get_batch(self, loader):
         batch = next(iter(self.val_loader))
-        if self.trainer.on_gpu:
-            batch = self.trainer.accelerator_backend.to_device(batch)
+        #if self.trainer.on_gpu:
+        batch = self.trainer.strategy.batch_to_device(batch)                #self.trainer.accelerator_backend.to_device(batch)
         return batch
 
     def log_kdes(self, tag, data, save_img=False):
@@ -461,7 +461,7 @@ class BaseCovariateExperiment(pl.LightningModule):
 
         sns.despine()
 
-        if save_img:
+        if save_img and not self.trainer.fast_dev_run :
             p = os.path.join(self.trainer.logger.experiment.log_dir, f'{tag}.png')
             plt.savefig(p, dpi=300)
 
