@@ -49,7 +49,8 @@ if __name__ == '__main__':
         #print(group.title,group_dict,'\n')
         groups[group.title] = argparse.Namespace(**group_dict)
 
-    lightning_args =  groups['pl.Trainer']               #groups['lightning_options']
+    lightning_args =  groups['pl.Trainer'] 
+    print(lightning_args)              #groups['lightning_options']
 
     logger = TensorBoardLogger(lightning_args.default_root_dir, name=f'{exp_args.experiment}/{exp_args.model}')
     lightning_args.logger = logger
@@ -60,13 +61,15 @@ if __name__ == '__main__':
 
     for k, v in vars(model_params).items():
         setattr(hparams, k, v)
-
-    print(lightning_args)
+    
+    print('lightning_args',lightning_args)
+    
     trainer = Trainer.from_argparse_args(lightning_args)
 
     ## debugging 
     trainer.fast_dev_run=True
     trainer.callbacks=[TQDMProgressBar(refresh_rate=20)]
+
 
 
     #trainer.max_epochs=5
@@ -82,5 +85,4 @@ if __name__ == '__main__':
     experiment = exp_class(hparams, model)
     #print('experiment------',experiment,'\n')
 
-
-    trainer.fit(experiment)
+#trainer.fit(experiment)

@@ -221,13 +221,14 @@ class BaseCovariateExperiment(pl.LightningModule):
 
     def prepare_data(self):
         # prepare transforms standard to MNIST
+        print('data_dir------',self.data_dir)
         mnist_train = MorphoMNISTLike(self.data_dir, train=True, columns=['thickness', 'intensity'])
         self.mnist_test = MorphoMNISTLike(self.data_dir, train=False, columns=['thickness', 'intensity'])
 
         num_val = int(len(mnist_train) * 0.1)
         num_train = len(mnist_train) - num_val
         self.mnist_train, self.mnist_val = random_split(mnist_train, [num_train, num_val])
-
+        print('trainer',self.trainer.strategy.root_device)
         self.torch_device =  self.trainer.strategy.root_device   #self.trainer.root_gpu if self.trainer.gpus else self.trainer.root_device
         print(f'using device: {self.torch_device}')
         thicknesses = 1. + torch.arange(3, dtype=torch.float, device=self.torch_device)
@@ -591,7 +592,7 @@ class BaseCovariateExperiment(pl.LightningModule):
     @classmethod
     def add_arguments(cls, parser):
         parser.add_argument(
-            '--data_dir', default="/vol/biomedic2/np716/data/gemini/synthetic/thickness_intensity/all_fixed_scale05/", type=str, help="data dir (default: %(default)s)")  # noqa: E501
+            '--data_dir', default='assets/data/morphomnist', type=str, help="data dir (default: %(default)s)")  # noqa: E501
         parser.add_argument('--sample_img_interval', default=10, type=int, help="interval in which to sample and log images (default: %(default)s)")
         parser.add_argument('--train_batch_size', default=256, type=int, help="train batch size (default: %(default)s)")
         parser.add_argument('--test_batch_size', default=256, type=int, help="test batch size (default: %(default)s)")

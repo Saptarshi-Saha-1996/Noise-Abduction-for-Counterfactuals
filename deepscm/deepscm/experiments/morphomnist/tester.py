@@ -1,3 +1,4 @@
+from email.policy import strict
 from deepscm.experiments import morphomnist  # noqa: F401
 from .base_experiment import EXPERIMENT_REGISTRY, MODEL_REGISTRY
 
@@ -7,6 +8,7 @@ import inspect
 
 if __name__ == '__main__':
     from pytorch_lightning import Trainer
+    from argparse import Namespace
     import argparse
     import os
 
@@ -25,6 +27,7 @@ if __name__ == '__main__':
     hparams = torch.load(checkpoint_path, map_location=torch.device('cpu'))['hparams']
 
     print(f'found hparams: {hparams}')
+    
 
     exp_class = EXPERIMENT_REGISTRY[hparams['experiment']]
 
@@ -42,14 +45,15 @@ if __name__ == '__main__':
         args.gpus = 1
 
     # TODO: push to lightning
-    args.gradient_clip_val = float(args.gradient_clip_val)
+    #args.gradient_clip_val = float(args.gradient_clip_val)
 
     groups = {}
     for group in parser._action_groups:
         group_dict = {a.dest: getattr(args, a.dest, None) for a in group._group_actions}
         groups[group.title] = argparse.Namespace(**group_dict)
 
-    lightning_args = groups['lightning_options']
+    lightning_args = groups['pl.Trainer']
+    print('lightning_args',lightning_args)
 
     trainer = Trainer.from_argparse_args(lightning_args)
     trainer.logger.experiment.log_dir = exp_args.checkpoint_path
@@ -66,8 +70,11 @@ if __name__ == '__main__':
 
     model = model_class(**model_params)
 
-    experiment = exp_class.load_from_checkpoint(checkpoint_path, pyro_model=model)
+    #data path (don't forget to change as per the experiment)
+    hparams['data_dir']='assets/data/morphomnist'
 
+    experiment = exp_class.load_from_checkpoint(checkpoint_path, pyro_model=model, hparams=Namespace(**hparams), strict=False)
     print(f'Loaded {experiment.__class__}:\n{experiment}')
-
+    hparams=Namespace(**hparams)
+    print('hparams',hparams.data_dir)
     trainer.test(experiment)
