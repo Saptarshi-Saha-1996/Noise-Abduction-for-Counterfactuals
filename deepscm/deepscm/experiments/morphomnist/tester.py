@@ -24,12 +24,12 @@ if __name__ == '__main__':
 
     print(f'using checkpoint {checkpoint_path}')
 
-    hparams = torch.load(checkpoint_path, map_location=torch.device('cpu'))['hparams']
-
+    hparams =  torch.load(checkpoint_path, map_location=torch.device('cpu')) ['hyper_parameters']
     print(f'found hparams: {hparams}')
+    #print(hparams.keys())
     
 
-    exp_class = EXPERIMENT_REGISTRY[hparams['experiment']]
+    exp_class = EXPERIMENT_REGISTRY[hparams['experiment']]       #EXPERIMENT_REGISTRY[hparams['experiment']]
 
     parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser = Trainer.add_argparse_args(parser)
