@@ -86,15 +86,15 @@ class FeaturesInference():
                 samples = self.model.counterfactual(obs=data, condition=condition, num_particles=self.args.particles)
                 #print(samples,id)
                 self.update_csv(samples, id)
-                if batch_idx % self.args.log_interval == 0:
-                    print('Inference: [{}/{} ({:.1f}%)]\tCondition: {}'.format(
-                        batch_idx * len(duration), len(self.loader.dataset), 100. * batch_idx / len(self.loader), self.args.condition))
+                #if batch_idx % self.args.log_interval == 0:
+                    #print('Inference: [{}/{} ({:.1f}%)]\tCondition: {}'.format(
+                        #batch_idx * len(duration), len(self.loader.dataset), 100. * batch_idx / len(self.loader), self.args.condition))
         self.close_csv()
 
 #-----------------------------------------------------------------------------------------------------------
 
 def main(args):
-    kwargs = {'num_workers': mp.cpu_count(), 'pin_memory': True} if args.cuda else {}
+    kwargs = {'num_workers': 1, 'pin_memory': True} if args.cuda else {}
     dataset = get_features_dataset(
         inference=True, filename=args.data_filename, dim=args.dim, random_seed=args.data_seed)
     loader = torch.utils.data.DataLoader(dataset, batch_size=args.batch_size, shuffle=False, **kwargs)
@@ -110,7 +110,10 @@ def main(args):
         model.cuda()
 
     feature = FeaturesInference(args, model, loader, dataset.data, dataset.covariates_dict)
+    start_time = time.time()
     feature.inference()
+    print('Time: {:.2f} min\n'.format((time.time()-start_time)/60.))
+    print('Done...\n\n\n')
 
 
 if __name__ == '__main__':
@@ -164,6 +167,4 @@ if __name__ == '__main__':
 
     main(args)
 
-    
-    
 ##Saptarshi Saha

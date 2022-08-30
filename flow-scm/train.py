@@ -1,3 +1,4 @@
+from ast import arg
 import os
 import time
 import torch
@@ -20,7 +21,7 @@ def save_checkpoint(state, is_best, filepath):
     torch.save(state, os.path.join(filepath, 'flow_ckpt.pth.tar'))
     if is_best:
         shutil.copyfile(os.path.join(filepath, 'flow_ckpt.pth.tar'), os.path.join(filepath, 'flow_best.pth.tar'))
-        print('best is saved')
+        #print('best is saved')
 #---------------------------------------------------------------------------------------------------------------
 
 
@@ -40,13 +41,12 @@ def train(args, model, optimizer, train_loader, epoch):
         loss.backward()
         optimizer.step()
         model.clear()
-        if batch_idx % args.log_interval == 0:
-            print('Train Epoch: {} [{}/{} ({:.1f}%)]\t| -LogProb Sex: {:.6f}\tAge: {:.6f} \tAmount: {:.6f}\tDuration: {:.6f} \tTotal: {:.6f}'.format(epoch, batch_idx * len(duration),
-                len(train_loader.dataset), 100. * batch_idx / len(train_loader),
-                torch.mean(log_p['sex']).item(), torch.mean(log_p['age']).item(),
-                torch.mean(log_p['amount']).item(), torch.mean(log_p['duration']).item(), -loss.item()))
-            
-            
+        #if epoch % args.log_interval ==0 and batch_idx % args.log_interval == 0:
+           # print('Train Epoch: {} [{}/{} ({:.1f}%)]\t| -LogProb Sex: {:.6f}\tAge: {:.6f} \tAmount: {:.6f}\tDuration: {:.6f} \tTotal: {:.6f}'.format(epoch, batch_idx * len(duration),
+            #    len(train_loader.dataset), 100. * batch_idx / len(train_loader),
+            #    torch.mean(log_p['sex']).item(), torch.mean(log_p['age']).item(),
+            #    torch.mean(log_p['amount']).item(), torch.mean(log_p['duration']).item(), -loss.item()))
+
             
 
 def test(args, model, test_loader):
@@ -66,7 +66,7 @@ def test(args, model, test_loader):
     test_loss /= len(test_loader)
     associative_power=dict(associative_power) 
     associative_power={k: v/len(test_loader) for k,v in associative_power.items()}
-    print('\nTest set: Average  LogProb: {:.6f}\n'.format(test_loss))
+    #print('\nTest set: Average  LogProb: {:.6f}\n'.format(test_loss))
     return test_loss, associative_power
 
 
@@ -75,14 +75,16 @@ def test(args, model, test_loader):
 
 #--------------------------------------------------------------------------------------------------------------
 def main(args):
-    kwargs = {'num_workers': mp.cpu_count(), 'pin_memory': True} if args.cuda else {}
+    kwargs = {'num_workers': 1, 'pin_memory': True} if args.cuda else {}
+    #print(kwargs)
     dataset_train, dataset_test = get_features_dataset(
         filename=args.data_filename, dim=args.dim, random_seed=args.data_seed)
     train_loader = torch.utils.data.DataLoader(
         dataset_train, batch_size=args.batch_size, shuffle=True, **kwargs)
     test_loader = torch.utils.data.DataLoader(
         dataset_test, batch_size=args.test_batch_size, shuffle=False, **kwargs)
-
+    print('model:',args.arch,'flow type:',args.flow_type,'flow order:',args.flow_order)
+    print(args)
     model = models.__dict__[args.arch](
     flow_dict=dataset_train.flow_dict, flow_type=args.flow_type, order=args.flow_order)
     if args.cuda:
@@ -110,10 +112,11 @@ def main(args):
             'associative power':ass_power
         }, is_best, filepath=args.save)
 
+    print('==> Best LogProb: {:.6f}, Time: {:.2f} min\n'.format(best_loss, (time.time()-start_time)/60.))
     del model
     with torch.cuda.device('cuda:' + args.gpu_id):
         torch.cuda.empty_cache()
-    print('==> Best LogProb: {:.6f}, Time: {:.2f} min\n'.format(best_loss, (time.time()-start_time)/60.))
+    print('Done...\n\n\n')
 
 
 if __name__ == '__main__':
@@ -171,7 +174,5 @@ if __name__ == '__main__':
         + '_floworder_' + args.flow_order)
     mkdir(args.save)
     main(args)
-    
-    
     
 #Saptarshi Saha

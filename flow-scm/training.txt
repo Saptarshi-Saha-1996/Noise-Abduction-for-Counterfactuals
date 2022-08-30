@@ -1,0 +1,96 @@
+model: conditionalscm_path flow type: affine flow order quadratic
+Namespace(data_filename='german_credit_data.csv', dim=1, batch_size=64, test_batch_size=32, epochs=500, lr=0.0003, weight_decay=0.0001, no_cuda=False, gpu_id='0', data_seed=42, seed=68, log_interval=10, save='./logs/conditionalscm_path_flowtype_affine_floworder_quadratic', arch='conditionalscm_path', flow_type='affine', flow_order='quadratic', lr_annealing=False, cuda=True)
+==> Best LogProb: -13.144477, Time: 1.58 min
+
+Done...
+
+
+
+model: conditionalscm flow type: affine flow order quadratic
+Namespace(data_filename='german_credit_data.csv', dim=1, batch_size=64, test_batch_size=32, epochs=500, lr=0.0003, weight_decay=0.0001, no_cuda=False, gpu_id='0', data_seed=42, seed=68, log_interval=10, save='./logs/conditionalscm_flowtype_affine_floworder_quadratic', arch='conditionalscm', flow_type='affine', flow_order='quadratic', lr_annealing=False, cuda=True)
+==> Best LogProb: -16.860970, Time: 1.93 min
+
+Done...
+
+
+
+model: conditionalscm flow type: affine flow order linear
+Namespace(data_filename='german_credit_data.csv', dim=1, batch_size=64, test_batch_size=32, epochs=500, lr=0.0003, weight_decay=0.0001, no_cuda=False, gpu_id='0', data_seed=42, seed=68, log_interval=10, save='./logs/conditionalscm_flowtype_affine_floworder_linear', arch='conditionalscm', flow_type='affine', flow_order='linear', lr_annealing=False, cuda=True)
+==> Best LogProb: -16.806890, Time: 1.98 min
+
+Done...
+
+
+
+model: conditionalscm_path flow type: affine flow order linear
+Namespace(data_filename='german_credit_data.csv', dim=1, batch_size=64, test_batch_size=32, epochs=500, lr=0.0003, weight_decay=0.0001, no_cuda=False, gpu_id='0', data_seed=42, seed=68, log_interval=10, save='./logs/conditionalscm_path_flowtype_affine_floworder_linear', arch='conditionalscm_path', flow_type='affine', flow_order='linear', lr_annealing=False, cuda=True)
+==> Best LogProb: -13.230552, Time: 1.63 min
+
+Done...
+
+
+
+model: conditionalscm_path flow type: spline flow order: linear
+Namespace(data_filename='german_credit_data.csv', dim=1, batch_size=64, test_batch_size=32, epochs=500, lr=0.0003, weight_decay=0.0001, no_cuda=False, gpu_id='0', data_seed=42, seed=68, log_interval=10, save='./logs/conditionalscm_path_flowtype_spline_floworder_linear', arch='conditionalscm_path', flow_type='spline', flow_order='linear', lr_annealing=False, cuda=True)
+==> Best LogProb: -13.003031, Time: 1.92 min
+
+Done...
+
+
+
+model: conditionalscm flow type: spline flow order: linear
+Namespace(data_filename='german_credit_data.csv', dim=1, batch_size=64, test_batch_size=32, epochs=500, lr=0.0003, weight_decay=0.0001, no_cuda=False, gpu_id='0', data_seed=42, seed=68, log_interval=10, save='./logs/conditionalscm_flowtype_spline_floworder_linear', arch='conditionalscm', flow_type='spline', flow_order='linear', lr_annealing=False, cuda=True)
+==> Best LogProb: -16.936417, Time: 2.29 min
+
+Done...
+
+
+
+model: conditionalscm flow type: spline flow order: quadratic
+Namespace(data_filename='german_credit_data.csv', dim=1, batch_size=64, test_batch_size=32, epochs=500, lr=0.0003, weight_decay=0.0001, no_cuda=False, gpu_id='0', data_seed=42, seed=68, log_interval=10, save='./logs/conditionalscm_flowtype_spline_floworder_quadratic', arch='conditionalscm', flow_type='spline', flow_order='quadratic', lr_annealing=False, cuda=True)
+==> Best LogProb: -16.831388, Time: 2.15 min
+
+Done...
+
+
+
+model: conditionalscm_path flow type: spline flow order: quadratic
+Namespace(data_filename='german_credit_data.csv', dim=1, batch_size=64, test_batch_size=32, epochs=500, lr=0.0003, weight_decay=0.0001, no_cuda=False, gpu_id='0', data_seed=42, seed=68, log_interval=10, save='./logs/conditionalscm_path_flowtype_spline_floworder_quadratic', arch='conditionalscm_path', flow_type='spline', flow_order='quadratic', lr_annealing=False, cuda=True)
+==> Best LogProb: -12.934690, Time: 1.78 min
+
+Done...
+
+
+
+model: conditionalscm_path flow type: autoregressive flow order: quadratic
+Namespace(data_filename='german_credit_data.csv', dim=1, batch_size=64, test_batch_size=32, epochs=500, lr=0.0003, weight_decay=0.0001, no_cuda=False, gpu_id='0', data_seed=42, seed=68, log_interval=10, save='./logs/conditionalscm_path_flowtype_autoregressive_floworder_quadratic', arch='conditionalscm_path', flow_type='autoregressive', flow_order='quadratic', lr_annealing=False, cuda=True)
+==> Best LogProb: -13.027406, Time: 1.81 min
+
+Done...
+
+
+
+model: conditionalscm flow type: autoregressive flow order: quadratic
+Namespace(data_filename='german_credit_data.csv', dim=1, batch_size=64, test_batch_size=32, epochs=500, lr=0.0003, weight_decay=0.0001, no_cuda=False, gpu_id='0', data_seed=42, seed=68, log_interval=10, save='./logs/conditionalscm_flowtype_autoregressive_floworder_quadratic', arch='conditionalscm', flow_type='autoregressive', flow_order='quadratic', lr_annealing=False, cuda=True)
+==> Best LogProb: -16.826223, Time: 2.19 min
+
+Done...
+
+
+
+model: conditionalscm flow type: autoregressive flow order: linear
+Namespace(data_filename='german_credit_data.csv', dim=1, batch_size=64, test_batch_size=32, epochs=500, lr=0.0003, weight_decay=0.0001, no_cuda=False, gpu_id='0', data_seed=42, seed=68, log_interval=10, save='./logs/conditionalscm_flowtype_autoregressive_floworder_linear', arch='conditionalscm', flow_type='autoregressive', flow_order='linear', lr_annealing=False, cuda=True)
+==> Best LogProb: -16.871836, Time: 2.31 min
+
+Done...
+
+
+
+model: conditionalscm_path flow type: autoregressive flow order: linear
+Namespace(data_filename='german_credit_data.csv', dim=1, batch_size=64, test_batch_size=32, epochs=500, lr=0.0003, weight_decay=0.0001, no_cuda=False, gpu_id='0', data_seed=42, seed=68, log_interval=10, save='./logs/conditionalscm_path_flowtype_autoregressive_floworder_linear', arch='conditionalscm_path', flow_type='autoregressive', flow_order='linear', lr_annealing=False, cuda=True)
+==> Best LogProb: -12.942377, Time: 1.95 min
+
+Done...
+
+
+

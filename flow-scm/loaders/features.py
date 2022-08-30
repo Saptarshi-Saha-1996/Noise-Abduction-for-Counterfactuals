@@ -37,7 +37,7 @@ class featuresDataset(data.Dataset):
         self.flow_prepare()
 
         self.credit, self.y = [], []                                       #image_list---> credit
-        print('==> start preprocessing csv ...')
+        #print('==> start preprocessing csv ...')
         for index, row in self.data.iterrows():
             self.credit.append(dict(
                 duration = np.asarray(row['Duration']).astype(np.float32),
@@ -46,7 +46,7 @@ class featuresDataset(data.Dataset):
                 sex = self.sex_dict.transform([row['Sex']]),
                 age = round(row['Age'], 0),                                ##round(Age,2) ----> round(Age,0)
             ))
-        print('==> finished preprocessing csv ...')
+        #print('==> finished preprocessing csv ...')
 
         if not self.inference:                                                      #when inference is flase 
             self.ids = np.arange(0, len(self.credit))           #img_idxes --> ids
