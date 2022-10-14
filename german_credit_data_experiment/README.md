@@ -1,4 +1,13 @@
--assets :
+- assets :
     - plots : contains plots for the paper
+- data :
+    - data.py : creates german_credit_data.csv from german_credit_data_raw.csv
+    - german_credit_data.csv : has been used in the experiment
+    - german_credit_data_raw.csv : raw german credit data
+-datasets:
+    - counterfactuals: contains 24 csv file . These are generated counterfactuals.
+- loaders: 
+    - features.py : creates a custom dataset from german_credit_data.csv 
+
 - training.txt :
 - inference.txt :
