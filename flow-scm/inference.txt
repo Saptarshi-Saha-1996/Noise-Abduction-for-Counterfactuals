@@ -1,0 +1,293 @@
+
+
+
+./logs/conditionalscm_path_flowtype_affine_floworder_quadratic/flow_best.pth.tar
+==> Best LogProb: -13.144477
+
+associative power {'sex': tensor(-0.6520, device='cuda:0'), 'age': tensor(0., device='cuda:0'), 'amount': tensor(-9.0989, device='cuda:0'), 'duration': tensor(-3.3936, device='cuda:0')}
+
+=> Conterfactuals has been stored at conditionalscm_path_flowtype_affine_floworder_quadratic_do_sex_Male.csv.
+Time: 0.04 min
+
+Done...
+
+
+
+./logs/conditionalscm_path_flowtype_affine_floworder_quadratic/flow_best.pth.tar
+==> Best LogProb: -13.144477
+
+associative power {'sex': tensor(-0.6520, device='cuda:0'), 'age': tensor(0., device='cuda:0'), 'amount': tensor(-9.0989, device='cuda:0'), 'duration': tensor(-3.3936, device='cuda:0')}
+
+=> Conterfactuals has been stored at conditionalscm_path_flowtype_affine_floworder_quadratic_do_sex_Female.csv.
+Time: 0.04 min
+
+Done...
+
+
+
+./logs/conditionalscm_flowtype_affine_floworder_quadratic/flow_best.pth.tar
+==> Best LogProb: -16.860970
+
+associative power {'sex': tensor(-0.6519, device='cuda:0'), 'age': tensor(-3.8492, device='cuda:0'), 'amount': tensor(-8.9196, device='cuda:0'), 'duration': tensor(-3.4403, device='cuda:0')}
+
+=> Conterfactuals has been stored at conditionalscm_flowtype_affine_floworder_quadratic_do_sex_Male.csv.
+Time: 0.05 min
+
+Done...
+
+
+
+./logs/conditionalscm_flowtype_affine_floworder_quadratic/flow_best.pth.tar
+==> Best LogProb: -16.860970
+
+associative power {'sex': tensor(-0.6519, device='cuda:0'), 'age': tensor(-3.8492, device='cuda:0'), 'amount': tensor(-8.9196, device='cuda:0'), 'duration': tensor(-3.4403, device='cuda:0')}
+
+=> Conterfactuals has been stored at conditionalscm_flowtype_affine_floworder_quadratic_do_sex_Female.csv.
+Time: 0.05 min
+
+Done...
+
+
+
+./logs/conditionalscm_flowtype_affine_floworder_linear/flow_best.pth.tar
+==> Best LogProb: -16.806890
+
+associative power {'sex': tensor(-0.6519, device='cuda:0'), 'age': tensor(-3.8448, device='cuda:0'), 'amount': tensor(-8.9190, device='cuda:0'), 'duration': tensor(-3.3912, device='cuda:0')}
+
+=> Conterfactuals has been stored at conditionalscm_flowtype_affine_floworder_linear_do_sex_Male.csv.
+Time: 0.05 min
+
+Done...
+
+
+
+./logs/conditionalscm_flowtype_affine_floworder_linear/flow_best.pth.tar
+==> Best LogProb: -16.806890
+
+associative power {'sex': tensor(-0.6519, device='cuda:0'), 'age': tensor(-3.8448, device='cuda:0'), 'amount': tensor(-8.9190, device='cuda:0'), 'duration': tensor(-3.3912, device='cuda:0')}
+
+=> Conterfactuals has been stored at conditionalscm_flowtype_affine_floworder_linear_do_sex_Female.csv.
+Time: 0.05 min
+
+Done...
+
+
+
+./logs/conditionalscm_path_flowtype_affine_floworder_linear/flow_best.pth.tar
+==> Best LogProb: -13.230552
+
+associative power {'sex': tensor(-0.6519, device='cuda:0'), 'age': tensor(0., device='cuda:0'), 'amount': tensor(-9.0625, device='cuda:0'), 'duration': tensor(-3.5161, device='cuda:0')}
+
+=> Conterfactuals has been stored at conditionalscm_path_flowtype_affine_floworder_linear_do_sex_Male.csv.
+Time: 0.05 min
+
+Done...
+
+
+
+./logs/conditionalscm_path_flowtype_affine_floworder_linear/flow_best.pth.tar
+==> Best LogProb: -13.230552
+
+associative power {'sex': tensor(-0.6519, device='cuda:0'), 'age': tensor(0., device='cuda:0'), 'amount': tensor(-9.0625, device='cuda:0'), 'duration': tensor(-3.5161, device='cuda:0')}
+
+=> Conterfactuals has been stored at conditionalscm_path_flowtype_affine_floworder_linear_do_sex_Female.csv.
+Time: 0.05 min
+
+Done...
+
+----------------------------------------------------------------------------------------------------
+
+
+./logs/conditionalscm_path_flowtype_spline_floworder_linear/flow_best.pth.tar
+==> Best LogProb: -13.003031
+
+associative power {'sex': tensor(-0.6531, device='cuda:0'), 'age': tensor(0., device='cuda:0'), 'amount': tensor(-8.8849, device='cuda:0'), 'duration': tensor(-3.4650, device='cuda:0')}
+
+=> Conterfactuals has been stored at conditionalscm_path_flowtype_spline_floworder_linear_do_sex_Male.csv.
+Time: 0.06 min
+
+Done...
+
+
+
+./logs/conditionalscm_path_flowtype_spline_floworder_linear/flow_best.pth.tar
+==> Best LogProb: -13.003031
+
+associative power {'sex': tensor(-0.6531, device='cuda:0'), 'age': tensor(0., device='cuda:0'), 'amount': tensor(-8.8849, device='cuda:0'), 'duration': tensor(-3.4650, device='cuda:0')}
+
+=> Conterfactuals has been stored at conditionalscm_path_flowtype_spline_floworder_linear_do_sex_Female.csv.
+Time: 0.06 min
+
+Done...
+
+
+
+./logs/conditionalscm_flowtype_spline_floworder_linear/flow_best.pth.tar
+==> Best LogProb: -16.936417
+
+associative power {'sex': tensor(-0.6520, device='cuda:0'), 'age': tensor(-3.8461, device='cuda:0'), 'amount': tensor(-8.9240, device='cuda:0'), 'duration': tensor(-3.5144, device='cuda:0')}
+
+=> Conterfactuals has been stored at conditionalscm_flowtype_spline_floworder_linear_do_sex_Male.csv.
+Time: 0.06 min
+
+Done...
+
+
+
+./logs/conditionalscm_flowtype_spline_floworder_linear/flow_best.pth.tar
+==> Best LogProb: -16.936417
+
+associative power {'sex': tensor(-0.6520, device='cuda:0'), 'age': tensor(-3.8461, device='cuda:0'), 'amount': tensor(-8.9240, device='cuda:0'), 'duration': tensor(-3.5144, device='cuda:0')}
+
+=> Conterfactuals has been stored at conditionalscm_flowtype_spline_floworder_linear_do_sex_Female.csv.
+Time: 0.06 min
+
+Done...
+
+
+
+./logs/conditionalscm_flowtype_spline_floworder_quadratic/flow_best.pth.tar
+==> Best LogProb: -16.831388
+
+associative power {'sex': tensor(-0.6519, device='cuda:0'), 'age': tensor(-3.8453, device='cuda:0'), 'amount': tensor(-8.8776, device='cuda:0'), 'duration': tensor(-3.4565, device='cuda:0')}
+
+=> Conterfactuals has been stored at conditionalscm_flowtype_spline_floworder_quadratic_do_sex_Male.csv.
+Time: 0.06 min
+
+Done...
+
+
+
+./logs/conditionalscm_flowtype_spline_floworder_quadratic/flow_best.pth.tar
+==> Best LogProb: -16.831388
+
+associative power {'sex': tensor(-0.6519, device='cuda:0'), 'age': tensor(-3.8453, device='cuda:0'), 'amount': tensor(-8.8776, device='cuda:0'), 'duration': tensor(-3.4565, device='cuda:0')}
+
+=> Conterfactuals has been stored at conditionalscm_flowtype_spline_floworder_quadratic_do_sex_Female.csv.
+Time: 0.06 min
+
+Done...
+
+
+
+./logs/conditionalscm_path_flowtype_spline_floworder_quadratic/flow_best.pth.tar
+==> Best LogProb: -12.934690
+
+associative power {'sex': tensor(-0.6545, device='cuda:0'), 'age': tensor(0., device='cuda:0'), 'amount': tensor(-8.8973, device='cuda:0'), 'duration': tensor(-3.3828, device='cuda:0')}
+
+=> Conterfactuals has been stored at conditionalscm_path_flowtype_spline_floworder_quadratic_do_sex_Male.csv.
+Time: 0.05 min
+
+Done...
+
+
+
+./logs/conditionalscm_path_flowtype_spline_floworder_quadratic/flow_best.pth.tar
+==> Best LogProb: -12.934690
+
+associative power {'sex': tensor(-0.6545, device='cuda:0'), 'age': tensor(0., device='cuda:0'), 'amount': tensor(-8.8973, device='cuda:0'), 'duration': tensor(-3.3828, device='cuda:0')}
+
+=> Conterfactuals has been stored at conditionalscm_path_flowtype_spline_floworder_quadratic_do_sex_Female.csv.
+Time: 0.05 min
+
+Done...
+
+--------------------------------------------------------------------------------------------------------------
+
+
+./logs/conditionalscm_path_flowtype_autoregressive_floworder_quadratic/flow_best.pth.tar
+==> Best LogProb: -13.027406
+
+associative power {'sex': tensor(-0.6518, device='cuda:0'), 'age': tensor(0., device='cuda:0'), 'amount': tensor(-8.9095, device='cuda:0'), 'duration': tensor(-3.4662, device='cuda:0')}
+
+=> Conterfactuals has been stored at conditionalscm_path_flowtype_autoregressive_floworder_quadratic_do_sex_Male.csv.
+Time: 0.05 min
+
+Done...
+
+
+
+./logs/conditionalscm_path_flowtype_autoregressive_floworder_quadratic/flow_best.pth.tar
+==> Best LogProb: -13.027406
+
+associative power {'sex': tensor(-0.6518, device='cuda:0'), 'age': tensor(0., device='cuda:0'), 'amount': tensor(-8.9095, device='cuda:0'), 'duration': tensor(-3.4662, device='cuda:0')}
+
+=> Conterfactuals has been stored at conditionalscm_path_flowtype_autoregressive_floworder_quadratic_do_sex_Female.csv.
+Time: 0.05 min
+
+Done...
+
+
+
+./logs/conditionalscm_flowtype_autoregressive_floworder_quadratic/flow_best.pth.tar
+==> Best LogProb: -16.826223
+
+associative power {'sex': tensor(-0.6519, device='cuda:0'), 'age': tensor(-3.8454, device='cuda:0'), 'amount': tensor(-8.8820, device='cuda:0'), 'duration': tensor(-3.4468, device='cuda:0')}
+
+=> Conterfactuals has been stored at conditionalscm_flowtype_autoregressive_floworder_quadratic_do_sex_Male.csv.
+Time: 0.06 min
+
+Done...
+
+
+
+./logs/conditionalscm_flowtype_autoregressive_floworder_quadratic/flow_best.pth.tar
+==> Best LogProb: -16.826223
+
+associative power {'sex': tensor(-0.6519, device='cuda:0'), 'age': tensor(-3.8454, device='cuda:0'), 'amount': tensor(-8.8820, device='cuda:0'), 'duration': tensor(-3.4468, device='cuda:0')}
+
+=> Conterfactuals has been stored at conditionalscm_flowtype_autoregressive_floworder_quadratic_do_sex_Female.csv.
+Time: 0.06 min
+
+Done...
+
+
+
+./logs/conditionalscm_flowtype_autoregressive_floworder_linear/flow_best.pth.tar
+==> Best LogProb: -16.871836
+
+associative power {'sex': tensor(-0.6519, device='cuda:0'), 'age': tensor(-3.8481, device='cuda:0'), 'amount': tensor(-8.9161, device='cuda:0'), 'duration': tensor(-3.4557, device='cuda:0')}
+
+=> Conterfactuals has been stored at conditionalscm_flowtype_autoregressive_floworder_linear_do_sex_Male.csv.
+Time: 0.06 min
+
+Done...
+
+
+
+./logs/conditionalscm_flowtype_autoregressive_floworder_linear/flow_best.pth.tar
+==> Best LogProb: -16.871836
+
+associative power {'sex': tensor(-0.6519, device='cuda:0'), 'age': tensor(-3.8481, device='cuda:0'), 'amount': tensor(-8.9161, device='cuda:0'), 'duration': tensor(-3.4557, device='cuda:0')}
+
+=> Conterfactuals has been stored at conditionalscm_flowtype_autoregressive_floworder_linear_do_sex_Female.csv.
+Time: 0.06 min
+
+Done...
+
+
+
+./logs/conditionalscm_path_flowtype_autoregressive_floworder_linear/flow_best.pth.tar
+==> Best LogProb: -12.942377
+
+associative power {'sex': tensor(-0.6519, device='cuda:0'), 'age': tensor(0., device='cuda:0'), 'amount': tensor(-8.9177, device='cuda:0'), 'duration': tensor(-3.3728, device='cuda:0')}
+
+=> Conterfactuals has been stored at conditionalscm_path_flowtype_autoregressive_floworder_linear_do_sex_Male.csv.
+Time: 0.06 min
+
+Done...
+
+
+
+./logs/conditionalscm_path_flowtype_autoregressive_floworder_linear/flow_best.pth.tar
+==> Best LogProb: -12.942377
+
+associative power {'sex': tensor(-0.6519, device='cuda:0'), 'age': tensor(0., device='cuda:0'), 'amount': tensor(-8.9177, device='cuda:0'), 'duration': tensor(-3.3728, device='cuda:0')}
+
+=> Conterfactuals has been stored at conditionalscm_path_flowtype_autoregressive_floworder_linear_do_sex_Female.csv.
+Time: 0.06 min
+
+Done...
+
+
+
