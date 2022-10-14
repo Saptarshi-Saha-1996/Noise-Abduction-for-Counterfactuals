@@ -1,0 +1,4 @@
+-assets :
+    - plots : contains plots for the paper
+- training.txt :
+- inference.txt :

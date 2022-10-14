@@ -18,7 +18,7 @@ This repository contains code and assets structured as follows:
 - `german_credit_data_experiment`:
 
 
--`synthetic_data_experiment`:
+- `synthetic_data_experiment`:
 
 
 
