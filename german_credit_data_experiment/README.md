@@ -1,14 +1,15 @@
 ![Combinations of flows](assets/Combinations_of_flows.png "Combination of flows")
 
-6 flows models, 
-2 different settings :
+* 6 flows models: 3 types (affine, spline, autoregressive) $\times$ 2 order (linear, quadratic) 
+* 2 different settings :
+
     conditionalscm - full model (doesn't follow preabduction)
     conditionalscm_path - partial model (follows preabduction) 
- 2 interventions: do(sex=Male), do(sex=Female)  
+ * 2 interventions: do(sex=Male), do(sex=Female)  
 
 
 
-
+---
 ## Structure
 
 - `assets/`:
