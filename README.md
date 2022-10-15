@@ -12,13 +12,5 @@ This repository contains the code for the paper.
 
 
 
-## Structure
-This repository contains code and assets structured as follows:
-
-- `german_credit_data_experiment`:
-
-
-- `synthetic_data_experiment`:
-
 
 

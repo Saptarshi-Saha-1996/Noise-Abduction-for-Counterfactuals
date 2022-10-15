@@ -1,13 +1,10 @@
 ![Combinations of flows](assets/Combinations_of_flows.png "Combination of flows")
-![Causal graph for german credit dataset](assets/causal_graph_german_credit_dataset.png "Causal graph for german credit dataset")
 
 * 6 flows models: 3 types (affine, spline, autoregressive) $\times$ 2 order (linear, quadratic) 
 * 2 different settings :
-    * conditionalscm - full model (doesn't follow pre-abduction)
-    * conditionalscm_path - partial model (follows pre-abduction) 
+    * conditionalscm -       full model (doesn't follow pre-abduction)
+    * conditionalscm_path -  partial model (follows pre-abduction) 
  * 2 interventions: do(sex=Male), do(sex=Female)  
-
-
 
 ---
 ## Structure
@@ -34,3 +31,6 @@
 - `train.py`: script for training a model.
 - `trainig.txt`: recorded training configuration and training time.
 - `utils.py`: few useful things (avoidable)
+
+---
+![Causal graph for german credit dataset](assets/causal_graph_german_credit_dataset.png "Causal graph for german credit dataset")
