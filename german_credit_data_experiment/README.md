@@ -1,6 +1,10 @@
-![Combinations of flows](assets/Combinations of flows.png "Combination of flows")
+![Combinations of flows](assets/Combinations_of_flows.png "Combination of flows")
 
-
+6 flows models, 
+2 different settings :
+    conditionalscm - full model (doesn't follow preabduction)
+    conditionalscm_path - partial model (follows preabduction) 
+ 2 interventions: do(sex=Male), do(sex=Female)  
 
 
 
@@ -8,7 +12,7 @@
 ## Structure
 
 - `assets/`:
-    - `plots/`: contains plots for the paper
+    - `plots/`: contains plots for the paper (generated using `plotter.py` and `visuals.ipynb`)
 - `data/`:
     - `data.py`: creates german_credit_data.csv from german_credit_data_raw.csv
     - `german_credit_data.csv`: has been used in the experiment
