@@ -2,9 +2,8 @@
 
 * 6 flows models: 3 types (affine, spline, autoregressive) $\times$ 2 order (linear, quadratic) 
 * 2 different settings :
-
-    conditionalscm - full model (doesn't follow preabduction)
-    conditionalscm_path - partial model (follows preabduction) 
+    * conditionalscm - full model (doesn't follow preabduction)
+    * conditionalscm_path - partial model (follows preabduction) 
  * 2 interventions: do(sex=Male), do(sex=Female)  
 
 
@@ -28,9 +27,9 @@
     - `nfs.py`: model that doesn't use pre-abduction and infers all the noises in abduction
     - `transforms.py`: few normalizing flows architecure
 - `infer.py`: script for inference
-- `inference.txt`: 
+- `inference.txt`: recorded associative power  and inference time (negligible time difference in our case)
 - `plotter.py`: script for creating plots. It requires the directoy containing 24 counterfactual files (in csv format) like 'datasets/counterfactuals' . see `visuals.ipynb`.
 -  `train_infer.ipynb`: we run the training and inference scripts for different models from this jupyter notebook. One can use the similar commands in terminal also.
 - `train.py`: script for training a model.
-- `trainig.txt`:
+- `trainig.txt`: recorded training configuration and training time.
 - `utils.py`: few useful things (avoidable)
