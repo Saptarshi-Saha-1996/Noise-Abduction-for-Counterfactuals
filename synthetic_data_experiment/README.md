@@ -14,7 +14,7 @@ $X_{1}=X_{6}-X_{5}+3\epsilon_{1}$
 $Y=X_{1}+2X_{2}-3X_{3}+\epsilon_{Y}$
 
 
-
+![causal graph](causal_graph.png "causal graph")
 
 
 ---
