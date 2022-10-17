@@ -1,7 +1,26 @@
+
+## Experiments
+
 There is three experiments - *i) different seeds experiment*, *ii)sample_size vs train time* and *iii)specific seed experiment*.
 
-Every experiment has one jupyter notebook and a corresponding asset folder containing logs (checkpoints) and  graphs etc..   
+### specific seed experiment
+- `specific_seed_experiment/`: 
+- `specific_seed_experiment.ipynb` :
 
+
+### sample_size vs train time
+- `sample_size_vs_train_time/` :
+- `train_time_experiment.ipynb` :
+- `train_time_experiment.py`:
+
+
+### different seeds experiment
+- `different_seeds_experiment/`:
+- `different_seeds_experiment.ipynb` :
+- `different_seeds_experiment.py :`
+
+
+---
 ## Structure
 - `analysis.py`: contains utility functions for creating plots for sampling capability, noise inference (abduction) capability, counterfactuals and estimating errors 
 - `cf_analysis.py`: function for permorning counterfactual prediction

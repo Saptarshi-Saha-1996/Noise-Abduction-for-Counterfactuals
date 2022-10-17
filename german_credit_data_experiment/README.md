@@ -5,7 +5,7 @@
     * conditionalscm -       full model (doesn't follow pre-abduction)
     * conditionalscm_path -  partial model (follows pre-abduction) 
  * 2 interventions: do(sex=Male), do(sex=Female)  
-
+ 
 ---
 ## Structure
 
