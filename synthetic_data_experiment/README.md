@@ -21,14 +21,15 @@ $Y=X_{1}+2X_{2}-3X_{3}+\epsilon_{Y}$
 
 There is three experiments - *i) different seeds experiment*, *ii)sample_size vs train time* and *iii)specific seed experiment*.
 
-** ConditionalSCM : full model
-** ConditionalSCM_partial : partial model
+* Models:
+    * ConditionalSCM: full model
+    * ConditionalSCM_partial: partial model
 
 ### specific seed experiment
 - `specific_seed_experiment/`:  
     - `assets/`: contains graphs of the experiment
     - `logs/`: checkpoints for full model and partial model
-- `specific_seed_experiment.ipynb` :
+- `specific_seed_experiment.ipynb` : experiment notebook
 
 
 
