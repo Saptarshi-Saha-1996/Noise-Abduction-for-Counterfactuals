@@ -1,5 +1,5 @@
 ### *Structural Causal Model*
-<img src="causal_graph.png" alt="causal_graph" width="150"/>
+<img align="right" src="causal_graph.png" alt="causal_graph" width="2000"/>
 $X_{4}=2\epsilon_{4}+1$
 <br>
 $X_{6}=\epsilon_{6}-1$
@@ -21,9 +21,14 @@ $Y=X_{1}+2X_{2}-3X_{3}+\epsilon_{Y}$
 
 There is three experiments - *i) different seeds experiment*, *ii)sample_size vs train time* and *iii)specific seed experiment*.
 
+**Condit
+
 ### specific seed experiment
-- `specific_seed_experiment/`: 
+- `specific_seed_experiment/`:  
+    - `assets/`: contains graphs of the experiment
+    - `logs/`: checkpoints for full model and partial model
 - `specific_seed_experiment.ipynb` :
+
 
 
 ### sample_size vs train time
@@ -50,8 +55,7 @@ There is three experiments - *i) different seeds experiment*, *ii)sample_size vs
 - `scm.py` : True SCM
 - `train.py`: script for training full model or partial model
 - `utils.py` :  mkdir function (will be removed)
-```diff
--  `synthetic_data_experiment.ipynb` : kind of idea scratchpad ... (one can start from here for understanding)
-```
+ - `synthetic_data_experiment.ipynb` : kind of idea scratchpad ... (good place to start for understanding)
+
 
 ---
