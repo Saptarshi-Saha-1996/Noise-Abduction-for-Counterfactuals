@@ -1,4 +1,5 @@
 ### *Structural Causal Model*
+<img src="causal_graph.png" alt="causal_graph" width="150"/>
 $X_{4}=2\epsilon_{4}+1$
 <br>
 $X_{6}=\epsilon_{6}-1$
@@ -12,7 +13,6 @@ $X_{3}=-3X_{4}+\epsilon_{3}-3$
 $X_{1}=X_{6}-X_{5}+3\epsilon_{1}$
 <br>
 $Y=X_{1}+2X_{2}-3X_{3}+\epsilon_{Y}$
-<img src="causal_graph.png" alt="causal_graph" width="150"/>
 
 
 ---
@@ -50,6 +50,8 @@ There is three experiments - *i) different seeds experiment*, *ii)sample_size vs
 - `scm.py` : True SCM
 - `train.py`: script for training full model or partial model
 - `utils.py` :  mkdir function (will be removed)
--  <span style="color:blue">`synthetic_data_experiment.ipynb` : kind of idea scratchpad ... (one can start from here for understanding)</span>
+```diff
+-  `synthetic_data_experiment.ipynb` : kind of idea scratchpad ... (one can start from here for understanding)
+```
 
 ---
