@@ -1,5 +1,5 @@
 ### *Structural Causal Model*
-<img align="right" src="causal_graph.png" alt="causal_graph" width="2000"/>
+<img align="right" src="causal_graph.png" alt="causal_graph" width="200"/>
 $X_{4}=2\epsilon_{4}+1$
 <br>
 $X_{6}=\epsilon_{6}-1$
@@ -21,7 +21,8 @@ $Y=X_{1}+2X_{2}-3X_{3}+\epsilon_{Y}$
 
 There is three experiments - *i) different seeds experiment*, *ii)sample_size vs train time* and *iii)specific seed experiment*.
 
-**Condit
+** ConditionalSCM : full model
+** ConditionalSCM_partial : partial model
 
 ### specific seed experiment
 - `specific_seed_experiment/`:  
