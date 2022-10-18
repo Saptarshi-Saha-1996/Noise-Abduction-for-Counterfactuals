@@ -13,8 +13,8 @@ $X_{1}=X_{6}-X_{5}+3\epsilon_{1}$
 <br>
 $Y=X_{1}+2X_{2}-3X_{3}+\epsilon_{Y}$
 
-
 ![causal graph](causal_graph.png "causal graph")
+<img src="causal_graph.png" alt="causal_graph" width="100"/>
 
 
 ---
@@ -37,7 +37,7 @@ There is three experiments - *i) different seeds experiment*, *ii)sample_size vs
 ### different seeds experiment
 - `different_seeds_experiment/`:
 - `different_seeds_experiment.ipynb` :
-- `different_seeds_experiment.py :`
+- `different_seeds_experiment.py ` :
 
 
 ---
@@ -51,6 +51,6 @@ There is three experiments - *i) different seeds experiment*, *ii)sample_size vs
 - `scm.py` : True SCM
 - `train.py`: script for training full model or partial model
 - `utils.py` :  mkdir function (will be removed)
-- `synthetic_data_experiment.ipynb` : kind of idea scratchpad ...
+- `synthetic_data_experiment.ipynb` : kind of idea scratchpad ... (one can start from here for understanding)
 
-
+---
