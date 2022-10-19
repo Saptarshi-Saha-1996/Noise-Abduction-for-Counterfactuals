@@ -1,5 +1,7 @@
 ![Combinations of flows](assets/Combinations_of_flows.png "Combination of flows")
 
+<img align="left" src="assets/Combinations_of_flows.png " alt="Combination of flows" width="200"/>
+
 * 6 flows models: 3 types (affine, spline, autoregressive) $\times$ 2 order (linear, quadratic) 
 * 2 different settings :
     * conditionalscm -       full model (doesn't follow pre-abduction)

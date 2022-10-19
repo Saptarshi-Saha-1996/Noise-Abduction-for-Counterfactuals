@@ -26,10 +26,13 @@ There is three experiments - *i) different seeds experiment*, *ii)sample_size vs
     * ConditionalSCM_partial: partial model
 
 ### specific seed experiment
+
 - `specific_seed_experiment/`:  
     - `assets/`: contains graphs of the experiment
     - `logs/`: checkpoints for full model and partial model
-- `specific_seed_experiment.ipynb` : experiment notebook
+- `specific_seed_experiment.ipynb` : experiment notebook (similar to `synthetic_data_experiment.ipynb`)
+
+
 
 
 
