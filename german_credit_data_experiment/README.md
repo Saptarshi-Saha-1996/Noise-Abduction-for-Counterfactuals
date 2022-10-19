@@ -1,5 +1,5 @@
 
-<img align="left" src="assets/Combinations_of_flows.png " alt="Combination of flows" width="500"/>
+<img align="right" src="assets/Combinations_of_flows.png " alt="Combination of flows" width="500"/>
 
 * 6 flows models: 3 types (affine, spline, autoregressive) $\times$ 2 order (linear, quadratic) 
 * 2 different settings :
