@@ -34,18 +34,19 @@ There is three experiments - *i) different seeds experiment*, *ii)sample_size vs
 
 
 
+### different seeds experiment
+- `different_seeds_experiment/`: contains graphs, logs etc. for ten different seeds; also contains reported training time and errors in counterfactuals
+- `different_seeds_experiment.ipynb` :
+- `different_seeds_experiment.py ` :
+
+<img  src="different_seeds_experiment/counterfactual_errors.pdf" alt="causal_graph" width="200"/>
+
 
 
 ### sample_size vs train time
-- `sample_size_vs_train_time/` :
+- `sample_size_vs_train_time/` : 
 - `train_time_experiment.ipynb` :
 - `train_time_experiment.py`:
-
-
-### different seeds experiment
-- `different_seeds_experiment/`:
-- `different_seeds_experiment.ipynb` :
-- `different_seeds_experiment.py ` :
 
 
 ---
