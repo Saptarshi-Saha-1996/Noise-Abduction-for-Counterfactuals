@@ -7,4 +7,4 @@ weight_decay=0                          #1e-3
 epochs=1000                     # 1000
 lr_annealing=True
 log_interval=100
-save='./logs_2' 
+save='./logs_2'     # modify it accordingly

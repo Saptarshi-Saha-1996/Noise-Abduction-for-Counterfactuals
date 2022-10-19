@@ -1,5 +1,5 @@
 ### *Structural Causal Model*
-<img align="right" src="causal_graph.png" alt="causal_graph" width="300"/>
+<img align="right" src="causal_graph.png" alt="causal_graph" width="200"/>
 $X_{4}=2\epsilon_{4}+1$
 <br>
 $X_{6}=\epsilon_{6}-1$
@@ -17,7 +17,7 @@ $Y=X_{1}+2X_{2}-3X_{3}+\epsilon_{Y}$
 
 ---
 
-## Experiments
+### Experiments
 
 There is three experiments - *i) different seeds experiment*, *ii)sample_size vs train time* and *iii)specific seed experiment*.
 
@@ -50,7 +50,7 @@ There is three experiments - *i) different seeds experiment*, *ii)sample_size vs
 
 ---
 
-## Structure
+### Structure
 - `analysis.py`: contains utility functions for creating plots for sampling capability, noise inference (abduction) capability, counterfactuals and estimating errors 
 - `cf_analysis.py`: function for permorning counterfactual prediction
 -  `config.py` : important hyperparams
@@ -60,6 +60,6 @@ There is three experiments - *i) different seeds experiment*, *ii)sample_size vs
 - `scm.py` : True SCM
 - `train.py`: script for training full model or partial model
 - `utils.py` :  mkdir function (will be removed)
- - `synthetic_data_experiment.ipynb` : kind of idea scratchpad ... (good place to start for understanding)
+ - `synthetic_data_experiment.ipynb` : kind of idea scratchpad ... (good place to start for understanding) 
 
 ---
