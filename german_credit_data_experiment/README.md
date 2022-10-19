@@ -1,6 +1,6 @@
 ![Combinations of flows](assets/Combinations_of_flows.png "Combination of flows")
 
-<img align="left" src="assets/Combinations_of_flows.png " alt="Combination of flows" width="200"/>
+<img align="left" src="assets/Combinations_of_flows.png " alt="Combination of flows" width="400"/>
 
 * 6 flows models: 3 types (affine, spline, autoregressive) $\times$ 2 order (linear, quadratic) 
 * 2 different settings :
@@ -35,4 +35,6 @@
 - `utils.py`: few useful things (avoidable)
 
 ---
+## Causal graph for german credit dataset
+
 ![Causal graph for german credit dataset](assets/causal_graph_german_credit_dataset.png "Causal graph for german credit dataset")
