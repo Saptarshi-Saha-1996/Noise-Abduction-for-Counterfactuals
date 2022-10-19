@@ -62,5 +62,4 @@ There is three experiments - *i) different seeds experiment*, *ii)sample_size vs
 - `utils.py` :  mkdir function (will be removed)
  - `synthetic_data_experiment.ipynb` : kind of idea scratchpad ... (good place to start for understanding)
 
-
 ---
