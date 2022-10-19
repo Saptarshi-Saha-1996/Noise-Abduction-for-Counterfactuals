@@ -3,8 +3,8 @@
 
 * 6 flows models: 3 types (affine, spline, autoregressive) $\times$ 2 order (linear, quadratic) 
 * 2 different settings :
-        * conditionalscm -       full model (doesn't follow pre-abduction)
-        * conditionalscm_path -  partial model (follows pre-abduction) 
+    * conditionalscm -       full model (doesn't follow pre-abduction)
+    * conditionalscm_path -  partial model (follows pre-abduction) 
  * 2 interventions: do(sex=Male), do(sex=Female)  
  
 ---
@@ -36,4 +36,4 @@
 ---
 #### Causal graph for german credit dataset
 
-![Causal graph for german credit dataset](assets/causal_graph_german_credit_dataset.png "Causal graph for german credit dataset")
+<img align="left" src="assets/causal_graph_german_credit_dataset.png " alt="Causal graph for german credit dataset" width="500"/>
