@@ -17,7 +17,7 @@ $Y=X_{1}+2X_{2}-3X_{3}+\epsilon_{Y}$
 
 ---
 
-### Experiments
+## Experiments
 
 There is three experiments - *i) different seeds experiment*, *ii)sample_size vs train time* and *iii)specific seed experiment*.
 
