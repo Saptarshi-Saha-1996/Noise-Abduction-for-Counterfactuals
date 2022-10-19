@@ -39,7 +39,7 @@ There is three experiments - *i) different seeds experiment*, *ii)sample_size vs
 - `different_seeds_experiment.ipynb` :
 - `different_seeds_experiment.py ` :
 
-<img  src="different_seeds_experiment/counterfactual_errors.pdf" alt="causal_graph" width="200"/>
+<iframe  src="different_seeds_experiment/counterfactual_errors.pdf" alt="causal_graph" width="300"/>
 
 
 
