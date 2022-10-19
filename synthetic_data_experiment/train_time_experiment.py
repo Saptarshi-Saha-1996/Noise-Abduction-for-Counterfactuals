@@ -33,7 +33,7 @@ sample_sizes=[256,512, 1024,4096,8192,16384,32768 ]        #,5000,10000,20000,50
 batch_sizes=[32,64,128,256]
 
 
-
+# We modify the trianing function here . We don't save training logs for this experiment.
 
 
 
