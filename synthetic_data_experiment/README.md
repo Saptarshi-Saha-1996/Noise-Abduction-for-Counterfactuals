@@ -28,25 +28,24 @@ There is three experiments - *i) different seeds experiment*, *ii)sample_size vs
 ### specific seed experiment
 
 - `specific_seed_experiment/`:  
-    - `assets/`: contains graphs of the experiment
+    - `assets/`: contains plots of the experiment
     - `logs/`: checkpoints for full model and partial model
 - `specific_seed_experiment.ipynb` : experiment notebook (similar to `synthetic_data_experiment.ipynb`)
 
 
 
 ### different seeds experiment
-- `different_seeds_experiment/`: contains graphs, logs etc. for ten different seeds; also contains reported training time and errors in counterfactuals
-- `different_seeds_experiment.ipynb` :
-- `different_seeds_experiment.py ` :
+- `different_seeds_experiment/`: contains plots, logs etc. for ten different seeds; also contains reported training time and errors in counterfactuals
+- `different_seeds_experiment.ipynb` : statistical error analysis of counterfactuals and training time analysis 
+- `different_seeds_experiment.py ` : train the models , generate counterfactuals and estimate errors for ten different seeds 
 
-<iframe  src="different_seeds_experiment/counterfactual_errors.pdf" alt="causal_graph" width="300"/>
 
 
 
 ### sample_size vs train time
-- `sample_size_vs_train_time/` : 
-- `train_time_experiment.ipynb` :
-- `train_time_experiment.py`:
+- `sample_size_vs_train_time/` :  contains reported training times of two models, plots for visualiztion of training time difference
+- `train_time_experiment.ipynb` : create plots for analysis of the training time difference
+- `train_time_experiment.py`: run two models for five different seeds. 
 
 
 ---
