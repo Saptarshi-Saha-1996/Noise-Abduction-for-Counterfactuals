@@ -152,7 +152,7 @@ if __name__ =="__main__":
     for sample_size in sample_sizes:
         for batch_size in batch_sizes:
             print("Start:",' ------batch_size',batch_size,'-----sample_size',sample_size)
-            for seed in range(5):
+            for seed in range(10):
                 np.random.seed(seed)
                 epsilon=np.random.normal(0,1,(sample_size,7))
                 X_6,X_5,X_4,X_3,X_2,X_1,Y=SCM(epsilon,intervention=False)
