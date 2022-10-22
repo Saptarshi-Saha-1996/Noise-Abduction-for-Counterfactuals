@@ -45,7 +45,7 @@ There is three experiments - *i) different seeds experiment*, *ii)sample_size vs
 ### sample_size vs train time
 - `sample_size_vs_train_time/` :  contains reported training times of two models, plots for visualiztion of training time difference
 - `train_time_experiment.ipynb` : create plots for analysis of the training time difference
-- `train_time_experiment.py`: run two models for five different seeds, seven diffrent sample sizes and four different batch sizes. It outputs training times in `sample_size_vs_train_time/training_time.csv`
+- `train_time_experiment.py`: run two models for ten different seeds, seven diffrent sample sizes and four different batch sizes. It outputs training times in `sample_size_vs_train_time/training_time.csv`
 
 
 ---
