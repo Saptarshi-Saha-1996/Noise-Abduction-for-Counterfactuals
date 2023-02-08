@@ -8,6 +8,22 @@ This is a PyTorch implementation of the our TMLR paper. This work builds on Pawl
 This repository contains the code for the paper.
 > S. Saha<sup>+</sup>, U. Garain. _On Noise Abduction for Answering Counterfactual Queries: A Practical Outlook_. Transactions on Machine Learning Research. 2022 
 >
+
+If you use pre-abduction idea in your publications, please consider citing the accompanying paper with a BibTeX entry similar to the following:
+
+```
+@article{
+saha2022on,
+title={On Noise Abduction for Answering Counterfactual Queries: A Practical Outlook },
+author={Saptarshi Saha and Utpal Garain},
+journal={Transactions on Machine Learning Research},
+issn={2835-8856},
+year={2022},
+url={https://openreview.net/forum?id=4FU8Jz1Oyj},
+note={}
+}
+```
+
 (<sup>+</sup>: first author)
 
 

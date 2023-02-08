@@ -1,5 +1,6 @@
 ### *Structural Causal Model*
 <img align="right" src="causal_graph.png" alt="causal_graph" width="200"/>
+
 $X_{4}=2\epsilon_{4}+1$
 <br>
 $X_{6}=\epsilon_{6}-1$
