@@ -1,7 +1,7 @@
 pytorch==1.11.0
 pyro-ppl==1.8.1 
 jupyterlab==3.2.9 
-scikit-learn==0.24.2
+scikit-learn==1.0.1
 scikit-image==0.18.3
 seaborn==0.11.2
 tensorboard==2.10.0
